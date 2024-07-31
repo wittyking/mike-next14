@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 async function getBlogs(){
   const response = await fetch('https://66a7b17053c13f22a3d0bc6a.mockapi.io/blogs/blogs',{ cache: 'force-cache' })//set option cache เป็น force-cache หรือ no-store
 
@@ -21,20 +19,9 @@ export default async function Page(){
       blogs.map((blog, index)=> (
         <div key={index}>
           {blog.id} {blog.name}
-          <Link href={`/blog/${blog.id}`} className="px-4 bg-blue-400">
-          Go to read blog...
-          </Link>
         </div>
       ))
     }
     </div>
   )
 }
-
-// export default function Home() {
-//   return (
-//     <dev>
-//       Hello witty
-//     </dev>
-//     )
-// }
